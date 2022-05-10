@@ -1,33 +1,16 @@
-<div class="container">
+<div class="container" *ngIf="this.isUser">
+  <div class="row filter-slider"> 
+  <label class="toggle-switch col-3"> 
+    <input type="checkbox"  [(ngModel)]="isChecked">
+    <div class="slider round"></div>
+  </label>
+  <div class=" col-1">Show Filter:</div>
+</div>
+    <app-filter *ngIf="isChecked" [cuisineType]="totalCuisine" (selectedType)="selectedValue($event)" (cuisineSelected)="selectedCuisine($event)"></app-filter>
     <div class="row">   
               <div class="col-3" *ngFor="let item of fooditems">
-                <app-card [fooditem]='item'></app-card>
-              </div>
-              <div class="col-3">
-                <app-card></app-card>
-              </div>
-              <div class="col-3">
-                <app-card></app-card>
-              </div>
-              <div class="col-3">
-                <app-card></app-card>
-              </div>
-              <div class="col-3">
-                <app-card></app-card>
-              </div>
-              <div class="col-3">
-                <app-card></app-card>
-              </div>
-              <div class="col-3">
-                <app-card></app-card>
-              </div>
-              <div class="col-3">
-                <app-card></app-card>
-              </div>
-              <div class="col-3">
-                <app-card></app-card>
-              </div>
-            
+              <app-card [fooditem]='item' (selectedFooditem)="addtoCart($event)"></app-card>
+    </div>           
      </div>
-     </div>
+</div>
     

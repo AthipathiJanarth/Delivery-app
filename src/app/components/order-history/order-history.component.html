@@ -1,0 +1,20 @@
+<div class="shopping-cart">
+    <div class="container">
+        <h3>Order History</h3>
+        <app-filter [cuisineType]="totalCuisine" (selectedType)="selectedValue($event)" (cuisineSelected)="selectedCuisine($event)"></app-filter>
+        <div class="column-labels row">
+            <label class="product-image">Image</label>
+            <label class="product-details">Food</label>
+            <label class="product-price">OrderDate</label>
+            <label class="product-quantity">Quantity</label>
+            <label class="product-removal">User</label>
+            <label class="product-line-price">Total</label>
+          </div>
+          <div class="row empty-msg" *ngIf="this.orderedItems === null || this.orderedItems.length === 0">
+            <h2>Your Order is empty</h2>
+            <a href="/FoodList"><button class="redirect">Order NOW</button></a>
+          </div>
+        <div class="row" *ngFor="let item of orderedItems">
+        <app-order-card [orderItem]="item"></app-order-card>
+    </div>
+</div> 

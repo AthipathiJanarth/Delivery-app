@@ -1,19 +1,21 @@
-<div class="card" >
+<div class="card" [ngClass]="{'disabled': !available}" title="{{!available ? 'This Item is not available at this time':''}}">
    <div class="card__image">
-      <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Salad" />
+      <img src="{{fooditem.Image}}" alt="Salad" />
    </div>
    <div class="card__info">
       <div class="car__info--title">
          <h3>{{fooditem.Name}}</h3>
-         <p>Fresh & sweet</p>
+         <p>{{fooditem.Cuisine}}</p>
+         <p><span class="type" [ngClass]="{'veg': fooditem.Type === 'Veg', 'non-veg' : fooditem.Type === 'Non-Veg' }"></span>{{fooditem.Type}}</p>
       </div>
       <div class="card__info--price">
-         <p>$ 5</p>
-         <span class="fa fa-star checked"></span>
-         <span class="fa fa-star checked"></span>
-         <span class="fa fa-star checked"></span>
-         <span class="fa fa-star checked"></span>
-         <span class="fa fa-star checked"></span>
-      </div>
+         <p>{{fooditem.Price}}</p>         
+      </div>     
    </div>
+   <div class="add-to-cart"> 
+      <span (click)="displayQuantity()" *ngIf="!isClicked">Add to cart</span> 
+      <span *ngIf="isClicked">Quantity</span>
+       <input type="number" *ngIf="isClicked" [(ngModel)]="quantity"> 
+       <span class="btn" *ngIf="isClicked" (click)="onAddtoCart()">Add</span>
+      </div>
 </div>

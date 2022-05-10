@@ -1,0 +1,40 @@
+<div class="shopping-cart">
+    <div class="container">
+        <h3>Shopping Cart</h3>
+        <div class="column-labels row">
+            <label class="product-image">Image</label>
+            <label class="product-details">Food</label>
+            <label class="product-price">Price</label>
+            <label class="product-quantity">Quantity</label>
+            <label class="product-removal">Remove</label>
+            <label class="product-line-price">Total</label>
+          </div>
+          <div class="row empty-msg" *ngIf="this.cartItems === null || this.cartItems.length === 0">
+            <h2>Your Cart is empty</h2>
+            <a href="/FoodList"><button class="redirect">Order NOW</button></a>
+          </div>
+        <div class="row" *ngFor="let item of cartItems">
+        <app-cartitem [foodItem]="item" (dishname)="removeItem($event)"></app-cartitem>
+    </div>   
+    <div class="totals" *ngIf="this.cartItems !== null && this.cartItems.length >0">
+        <div class="totals-item">
+          <label>Subtotal</label>
+          <div class="totals-value" id="cart-subtotal">{{subtotal}}</div>
+        </div>
+        <div class="totals-item">
+          <label>GST (18%)</label>
+          <div class="totals-value" id="cart-tax">{{tax}}</div>
+        </div>
+        <div class="totals-item">
+          <label>Shipping</label>
+          <div class="totals-value" id="cart-shipping">{{servicecharge}}</div>
+        </div>
+        <div class="totals-item totals-item-total">
+          <label>Grand Total</label>
+          <div class="totals-value" id="cart-total">{{total}}</div>
+        </div>
+      </div>
+    
+      <button class="checkout" (click)="onCheckout()" *ngIf="this.cartItems !== null && this.cartItems.length >0">Checkout</button>
+    </div>
+</div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import fooditemsmenu from '../../../assets/JSON/fooditem.json'
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import * as fooditems from '../../../assets/JSON/fooditems.json';
 
 @Component({
   selector: 'app-card-list',
@@ -7,54 +9,74 @@ import fooditemsmenu from '../../../assets/JSON/fooditem.json'
   styleUrls: ['./card-list.component.less']
 })
 export class CardListComponent implements OnInit {
-  fooditems = [
-    {
-      "Name": "Dosa",
-      "Type": "Veg",
-      "Cuisine": "South Indian",
-      "Availability": [{ "breakfast": "BREAKFAST", "lunch": "LUNCH" }],
-      "Price": "Rs.50"
-    },
-    {
-      "Name": "Chappathi",
-      "Type": "Veg",
-      "Cuisine": "North Indian",
-      "Availability": [{ "breakfast": "BREAKFAST", "lunch": "LUNCH", "dinner": "DINNER" }],
-      "Price": "Rs.40"
-    },
-    {
-      "Name": "Chicken FriedRice",
-      "Type": "Non-Veg",
-      "Cuisine": "Chinese",
-      "Availability": [{ "lunch": "LUNCH", "dinner": "DINNER" }],
-      "Price": "Rs.100"
-    },
-    {
-      "Name": "Cheesecake",
-      "Type": "Non-Veg",
-      "Cuisine": "Desert",
-      "Availability": [{ "lunch": "LUNCH", "dinner": "DINNER" }],
-      "Price": "Rs.150"
-    },
-    {
-      "Name": "Chicken Pizza",
-      "Type": "Non-Veg",
-      "Cuisine": "Italian",
-      "Availability": [{ "lunch": "LUNCH", "dinner": "DINNER" }],
-      "Price": "Rs.200"
-    },
-    {
-      "Name": "Veg Pizza",
-      "Type": "Veg",
-      "Cuisine": "Italian",
-      "Availability": [{ "lunch": "LUNCH", "dinner": "DINNER" }],
-      "Price": "Rs.170"
+  selectedItems: any = null;
+  form: FormGroup = new FormGroup({
+    items: new FormControl(null)
+  });
+  constructor(private router: Router) { 
+  }
+  fooditems: any = (fooditems as any).default;
+  cuisinefilter: string[] = [];
+  totalCuisine: string[] = [];
+  typeSelected: string = "";
+  isChecked: boolean = false;
+  tempArray: any[] = [];
+  temp: any;
+  isUser: boolean = false;
+  userName: any;
+  ngOnInit(): void {    
+    this.userName = localStorage.getItem('username');
+    this.isUser = this.userName ? true : false;
+    if (!this.isUser) { this.router.navigate(['/Login']);}
+    this.totalCuisine = Array.from(new Set(this.fooditems.map((x: any) => x.Cuisine)));
+    localStorage.setItem('Cuisines', JSON.stringify(this.totalCuisine));
+  }
+  selectedValue(event: any): void{  
+    if(this.cuisinefilter.length===0)
+      this.fooditems = (fooditems as any).default;
+    else {
+      this.fooditems = (fooditems as any).default;
+      this.fooditems = this.fooditems.filter((x: any) => this.cuisinefilter.some(f => f === x.Cuisine));
     }
-  ];
-  constructor() { 
+    this.typeSelected = event;
+    if ( this.typeSelected !== "Both")
+      this.fooditems = this.fooditems.filter((x: any) => x.Type ===  this.typeSelected);
   }
-
-  ngOnInit(): void {
+  selectedCuisine(event: any): void{
+    if(this.typeSelected ==="" || this.typeSelected === "Both")
+      this.fooditems = (fooditems as any).default;
+    else {
+      this.fooditems = (fooditems as any).default;
+      this.fooditems = this.fooditems.filter((x: any) => x.Type ===  this.typeSelected);
+    }
+    this.cuisinefilter = event;
+    if(this.cuisinefilter.length>0)
+    this.fooditems = this.fooditems.filter((x: any) => this.cuisinefilter.some(f=> f === x.Cuisine ));
   }
-
+  addtoCart(event: any): void { 
+    if (localStorage.getItem('cart-items')) { 
+     this.temp=localStorage.getItem('cart-items');
+      let cartItems = JSON.parse(this.temp);
+      this.tempArray = cartItems;
+    }
+    let count: number = 0;
+    if (this.tempArray.length > 0) {
+      let i: number = 0;
+      this.tempArray.forEach((item: any) => {
+        if (item.Name === event.Name) {
+          this.tempArray[i].Quantity = event.Quantity;
+          this.tempArray[i].Total = event.Total;
+          count = 1;
+          return;
+        }        
+        i++;
+      });
+      if (count === 0) { this.tempArray.push(event);}
+    }
+    else { 
+      this.tempArray.push(event);
+    }
+    localStorage.setItem('cart-items',JSON.stringify(this.tempArray));      
+  }
+   
 }

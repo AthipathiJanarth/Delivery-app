@@ -1,0 +1,9 @@
+<div class="login-page" *ngIf="!isAuthenticated">
+    <div class="form">
+       <form class="login-form">
+        <input type="text" placeholder="username"  [(ngModel)]="userName" [ngModelOptions]="{standalone: true}"/>
+        <input type="password" placeholder="password"  [(ngModel)]="pwd" [ngModelOptions]="{standalone: true}"/>
+        <button (click)="validateUser()">login</button>      
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,21 @@
+  <div class="product">
+    <div class="product-image">
+      <img src="{{foodItem.Image}}">
+    </div>
+    <div class="product-details">
+      <div class="product-title">{{foodItem.Name}}</div>
+    </div>
+    <div class="product-price">{{foodItem.Amount}}</div>
+    <div class="product-quantity">
+      {{foodItem.Quantity}}
+    </div>
+    <div class="product-removal">
+      <button class="remove-product" (click)="removeItem(foodItem.Name)">
+        Remove
+      </button>
+    </div>
+    <div class="product-line-price">{{foodItem.Total}}</div>
+  </div>
+
+
+

@@ -1,0 +1,16 @@
+<div class="row filter">
+<div class="col-3" >
+    <p>TYPE:</p>
+    <input type="radio" value="Veg" name="Type" (change)="onTypeChange($event)">Veg
+    <input type="radio" value="Non-Veg" name="Type" (change)="onTypeChange($event)">Non-Veg
+    <input type="radio" value="Both" name="Type" (change)="onTypeChange($event)">Both
+</div>
+<div class="col-9">
+    <p>CUISINE:</p>
+    <div class="row"> 
+        <div class="col-4" *ngFor="let cuisine of cuisineType">        
+        <input type="checkbox"  value="{{cuisine}}" (change)="onChangeCuisine($event,cuisine)">{{cuisine}}
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,14 @@
+[
+    {"Name":"XYZ",
+    "UserName":"xyz",
+    "Password":"xyz",
+    "Role":"user"},
+    {"Name":"AAA",
+        "UserName":"aaa",
+        "Password":"aaa",
+        "Role":"user"},
+    {"Name":"Admin",
+    "UserName":"admin",
+    "Password":"admin",
+    "Role":"admin"}
+]
