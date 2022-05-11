@@ -32,7 +32,7 @@ export class LoginFormComponent implements OnInit {
         this.isAdmin = true;
         this.globalSrv.theItem = this.users[index].Name;
         localStorage.setItem('username', this.users[index].Name);
-        this.router.navigate(['/Order-history']);
+        this.router.navigate(['/FoodList']);
       }
       else if (this.users[index].Role === "user") {
         this.isUser = true;

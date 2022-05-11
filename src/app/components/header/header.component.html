@@ -1,18 +1,18 @@
 <header class="site-header">
     <div class="site-identity">
-      <h1><a href="/FoodList">Food Delivery</a></h1>
+      <h1><a routerLink="/FoodList">Food Delivery</a></h1>
     </div>  
     <nav class="site-navigation" *ngIf="isUser">
       <ul class="nav">
         <li><a a routerLink="/FoodList">Order Online</a></li> 
-        <li><a href="/Cart">Cart</a></li> 
-        <li><a href="/Order-history">Order History</a></li>
+        <li><a routerLink="/Cart">Cart</a></li> 
+        <li><a routerLink="/Order-history">Order History</a></li>
         <li (click)="signOut()">Sign Out</li>  
       </ul>
     </nav>
     <nav class="site-navigation" *ngIf="isAdmin">
       <ul class="nav">
-        <li><a href="/Order-history">Order History</a></li>
+        <li><a routerLink="/Order-history">Order History</a></li>
         <li (click)="signOut()">Sign Out</li>  
       </ul>
     </nav>

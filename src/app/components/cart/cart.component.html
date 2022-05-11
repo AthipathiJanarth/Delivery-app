@@ -11,7 +11,7 @@
           </div>
           <div class="row empty-msg" *ngIf="this.cartItems === null || this.cartItems.length === 0">
             <h2>Your Cart is empty</h2>
-            <a href="/FoodList"><button class="redirect">Order NOW</button></a>
+            <a routerLink="/FoodList"><button class="redirect">Order NOW</button></a>
           </div>
         <div class="row" *ngFor="let item of cartItems">
         <app-cartitem [foodItem]="item" (dishname)="removeItem($event)"></app-cartitem>
