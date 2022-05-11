@@ -29,6 +29,8 @@ export class CardListComponent implements OnInit {
     this.isUser = this.userName ? true : false;
     if (!this.isUser) { this.router.navigate(['/Login']);}
     this.totalCuisine = Array.from(new Set(this.fooditems.map((x: any) => x.Cuisine)));
+    console.log(localStorage.getItem('Cuisines'));
+    if(localStorage.getItem('Cuisines')===null)
     localStorage.setItem('Cuisines', JSON.stringify(this.totalCuisine));
   }
   selectedValue(event: any): void{  
