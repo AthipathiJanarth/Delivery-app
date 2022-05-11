@@ -1,0 +1,99 @@
+    
+[ 
+    {
+    "Name": "Dosa",
+    "Type": "Veg",
+    "Cuisine": "South Indian",
+    "Availability": {"breakfast":"BREAKFAST","lunch":"","snack":"","dinner":"DINNER"},
+    "Price": "Rs.50",
+    "Image":"https://b.zmtcdn.com/data/dish_photos/f48/4cd6e39a524bfe640704045d5f2a8f48.jpg"
+    },
+    {
+        "Name": "Idly",
+        "Type": "Veg",
+        "Cuisine": "South Indian",
+        "Availability": {"breakfast":"BREAKFAST","lunch":"","snack":"","dinner":"DINNER"},
+        "Price": "Rs.30",
+        "Image":"https://b.zmtcdn.com/data/pictures/3/19641143/4e52bc1a4852dff5173db4b15a34a9b7_o2_featured_v2.jpg"
+    },
+    {
+        "Name": "Poori",
+        "Type": "Veg",
+        "Cuisine": "South Indian",
+        "Availability": {"breakfast":"BREAKFAST","lunch":"","snack":"","dinner":""},
+        "Price": "Rs.50",
+        "Image":"https://b.zmtcdn.com/data/dish_photos/a13/39a36f8f6aa81fb3f06ee2ded3282a13.jpg"
+    },
+    {
+    "Name": "Chappathi",
+    "Type": "Veg",
+    "Cuisine": "North Indian",
+    "Availability": {"breakfast":"BREAKFAST","lunch":"","snack":"","dinner":"DINNER"},
+    "Price": "Rs.40",
+    "Image":"https://b.zmtcdn.com/data/dish_photos/70d/34fdc574324a0d56c1cf2287dcfa070d.jpg"
+    },
+    {
+        "Name": "Samosa",
+        "Type": "Veg",
+        "Cuisine": "South Indian",
+        "Availability": {"breakfast":"","lunch":"","snack":"SNACK","dinner":""},
+        "Price": "Rs.50",
+        "Image":"https://b.zmtcdn.com/data/dish_photos/20a/6a1146819b7cb705db1792167926020a.jpg"
+    },
+    {
+        "Name": "Veg FriedRice",
+        "Type": "Veg",
+        "Cuisine": "Chinese",
+        "Availability": {"breakfast":"","lunch":"LUNCH","snack":"","dinner":"DINNER"},
+        "Price": "Rs.100",
+        "Image":"https://b.zmtcdn.com/data/dish_photos/412/dbeec5eb66bc513dda57362c96674412.jpg"
+        },
+    {
+    "Name": "FriedRice",
+    "Type": "Non-Veg",
+    "Cuisine": "Chinese",
+    "Availability": {"breakfast":"","lunch":"LUNCH","snack":"","dinner":"DINNER"},
+    "Price": "Rs.100",
+    "Image":"https://b.zmtcdn.com/data/dish_photos/dc7/3ab36ece8f681584f0f5636997b30dc7.jpg"
+    },
+    {
+        "Name": "Briyani",
+        "Type": "Non-Veg",
+        "Cuisine": "Mughal",
+        "Availability": {"breakfast":"","lunch":"LUNCH","snack":"","dinner":""},
+        "Price": "Rs.120",
+        "Image":"https://b.zmtcdn.com/data/pictures/2/19108322/6957f617883d1337fed703c65143d186_o2_featured_v2.jpg"
+    },
+    {
+        "Name": "Shawarma",
+        "Type": "Non-Veg",
+        "Cuisine": "Arabian",
+        "Availability": {"breakfast":"","lunch":"","snack":"SNACK","dinner":"Dinner"},
+        "Price": "Rs.120",
+        "Image":"https://b.zmtcdn.com/data/dish_photos/3c1/7f80ee94183aa9c495de657fed2693c1.png"
+    },
+    {
+        "Name": "Cheesecake",
+        "Type": "Non-Veg",
+        "Cuisine": "Desert",
+        "Availability": {"breakfast":"","lunch":"LUNCH","snack":"SNACK","dinner":"DINNER"},
+        "Price": "Rs.150",
+        "Image":"https://b.zmtcdn.com/data/dish_photos/ef3/6eac1e7b55b72a05899aeee52150cef3.jpg"
+    },
+    {
+        "Name": "Chicken Pizza",
+        "Type": "Non-Veg",
+        "Cuisine": "Italian",
+        "Availability": {"breakfast":"","lunch":"LUNCH","snack":"","dinner":"DINNER"},
+        "Price": "Rs.200",
+        "Image":"https://b.zmtcdn.com/data/pictures/chains/7/19419037/a92cd0f4d91bb5fcec827ce1f3dfd104_o2_featured_v2.jpg"
+    },
+    {
+        "Name": "Veg Pizza",
+        "Type": "Veg",
+        "Cuisine": "Italian",
+        "Availability": {"breakfast":"","lunch":"LUNCH","snack":"","dinner":"DINNER"},
+        "Price": "Rs.170",
+        "Image":"https://b.zmtcdn.com/data/pictures/1/20101061/351d5e41b40f54c9af0f6a1313f4f989_o2_featured_v2.jpg"
+    }
+]
